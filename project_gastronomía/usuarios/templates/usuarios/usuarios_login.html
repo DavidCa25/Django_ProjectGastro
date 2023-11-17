@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Gastronómico</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('tu-imagen.jpg'); /* Reemplaza 'tu-imagen.jpg' con la ruta de tu imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff; /* Color del texto principal */
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            text-align: center;
+        }
+
+        .form-container h2 {
+            color: #5e4caf; /* Color del título */
+            margin-bottom: 20px;
+        }
+
+        .form-container input {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #5e4caf; /* Borde más grueso y color elegante */
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .form-container button {
+            background-color: #5e4caf;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+
+        .form-container button:hover {
+            background-color: #4d409e;
+        }
+
+        .form-container a {
+            text-decoration: none;
+            color: #5e4caf;
+            margin-top: 20px;
+            display: inline-block;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Bienvenido a E-Commerce Gastronómico</h2>
+        <form method="post" action="{% url 'usuarios:usuarios_login' %}">
+            {% csrf_token %}
+            <label for="Email">Email:</label>
+            <input id="Email" type="email" name="email" required>{{usuario.email}}</input>
+            <br>
+            <label for="Password">Contraseña:</label>
+            <input id="Password" type="password" name="Password" required>{{usuario.Password}}</input>
+            <br>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <a href="{% url 'usuarios:usuarios_create' %}">Crear Cuenta</a>
+    </div>
+</body>
+</html>
