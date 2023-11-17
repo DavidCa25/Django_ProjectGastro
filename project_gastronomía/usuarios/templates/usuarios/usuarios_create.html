@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(238, 236, 135, 0.788);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .form-container input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #6a4ed1;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-container button {
+            background-color: #5e4caf;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+
+        .form-container a {
+            text-decoration: none;
+            color: #5e4caf;
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Crear Nuevo Usuario</h2>
+        <form method="post" action="{% url 'usuarios:usuarios_create' %}">
+            {% csrf_token %}
+            <label for="Email">Email:</label>
+            <input id="Email" type="email" name="email" rows="1" required>{{usuario.email}}</textarea>
+            <br>
+            <label for="Password">Password:</label>
+            <input id="Password" type="password" name="Password" rows="1" required>{{usuario.Password}}</textarea>
+            <br>
+            <label for="Nombre">Nombre:</label>
+            <input id="Nombre" name="nombre" rows="1" required>{{usuario.nombre}}</textarea>
+            <br>
+            <label for="Apellido">Apellido:</label>
+            <input id="Apellido" name="apellido" rows="1" required>{{usuario.apellido}}</textarea>
+            <br>
+            <label for="Direccion">Direccion:</label>
+            <input id="Direccion" name="direccion" rows="5" required>{{usuario.direccion}}</textarea>
+            <br>
+            <label for="Telefono">Telefono:</label>
+            <input id="Telefono" name="telefono" rows="1" required>{{usuario.telefono}}</textarea>
+            <br>
+            <label for="TipoUsuario">Tipo de Usuario:</label>
+            <input id="TipoUsuario" name="tipoUsuario" rows="1" required>{{usuario.tipoUsuario}}</textarea>
+            <br>
+            <button type="submit">Crear Usuario</button>
+        </form>
+    </div>
+</body>
+</html>
